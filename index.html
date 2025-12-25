@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weathry - Advanced Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-wind"></i>
+                <span>Weathry</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="#">
+                        <i class="fa-solid fa-table-columns"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Saved</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Calendar</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="settings">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="cityInput" placeholder="Search for cities..." spellcheck="false">
+                </div>
+                <!-- User Profile / Notifications could go here -->
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Main Weather Card -->
+                <div class="card main-weather-card">
+                    <div class="weather-info">
+                        <div class="weather-icon-lg">
+                            <img src="https://openweathermap.org/img/wn/04d@4x.png" id="mainIcon" alt="Weather Icon">
+                        </div>
+                        <h1 class="temp" id="currentTemp">--°c</h1>
+                        <p class="weather-desc" id="weatherDesc">--</p>
+                        <div class="location-date">
+                            <p><i class="fa-solid fa-location-arrow"></i> <span id="cityName">--</span></p>
+                            <p id="currentDate">--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlights Grid -->
+                <div class="highlights-section">
+                    <h3>Today's Highlights</h3>
+                    <div class="highlights-grid">
+                        <div class="card highlight-card">
+                            <h4>Wind Status</h4>
+                            <div class="highlight-value">
+                                <span id="windSpeed">--</span> <span class="unit">km/h</span>
+                            </div>
+                            <p class="highlight-desc">Direction: <span id="windDir">--</span></p>
+                        </div>
+                        <div class="card highlight-card">
+                            <h4>Humidity</h4>
+                            <div class="highlight-value">
+                                <span id="humidity">--</span> <span class="unit">%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" id="humidityProgress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="card highlight-card">
+                            <h4>Sunrise & Sunset</h4>
+                            <div class="sun-info">
+                                <div><i class="fa-solid fa-arrow-up"></i> <span id="sunrise">--:--</span></div>
+                                <div><i class="fa-solid fa-arrow-down"></i> <span id="sunset">--:--</span></div>
+                            </div>
+                        </div>
+                        <div class="card highlight-card">
+                            <h4>Visibility</h4>
+                            <div class="highlight-value">
+                                <span id="visibility">--</span> <span class="unit">km</span>
+                            </div>
+                            <p class="highlight-desc" id="visibilityStatus">Normal</p>
+                        </div>
+                        <div class="card highlight-card">
+                            <h4>Feels Like</h4>
+                            <div class="highlight-value">
+                                <span id="feelsLike">--</span> <span class="unit">°c</span>
+                            </div>
+                        </div>
+                        <div class="card highlight-card">
+                            <h4>Pressure</h4>
+                            <div class="highlight-value">
+                                <span id="pressure">--</span> <span class="unit">hPa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forecast / Map Section -->
+                <div class="forecast-section">
+                    <h3>5 Days Forecast</h3>
+                    <div class="forecast-list" id="forecastList">
+                        <!-- Forecast items will be injected here -->
+                        <div class="forecast-item">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="map-section card">
+                    <h3>Weather Map</h3>
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
